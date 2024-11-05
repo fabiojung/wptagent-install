@@ -34,9 +34,9 @@ set -eu
 : ${WPT_UPDATE_BROWSERS:='y'}
 : ${WPT_CHROME:='y'}
 : ${WPT_FIREFOX:='y'}
-: ${WPT_BRAVE:='y'}
-: ${WPT_EDGE:='y'}
-: ${WPT_EPIPHANY:='y'}
+: ${WPT_BRAVE:='n'}
+: ${WPT_EDGE:='n'}
+: ${WPT_EPIPHANY:='n'}
 : ${WPT_OPERA:='n'}
 : ${WPT_VIVALDI:='n'}
 : ${LINUX_DISTRO:=`(lsb_release -is)`}
@@ -45,7 +45,7 @@ set -eu
 if [ "${WPT_INTERACTIVE,,}" == 'y' ]; then
     : ${WPT_BRANCH:='master'}
 else
-    : ${WPT_BRANCH:='release'}
+    : ${WPT_BRANCH:='prod'}
 fi
 
 #**************************************************************************************************
@@ -136,7 +136,7 @@ fi
 #**************************************************************************************************
 
 # Node JS
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 # Agent dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
