@@ -45,7 +45,7 @@ set -eu
 if [ "${WPT_INTERACTIVE,,}" == 'y' ]; then
     : ${WPT_BRANCH:='master'}
 else
-    : ${WPT_BRANCH:='prod'}
+    : ${WPT_BRANCH:='release'}
 fi
 
 #**************************************************************************************************
